@@ -1,0 +1,19 @@
+version 1.0.4
+- Added component for orbit interception calculation.
+- Minor bugs fixes.
+
+version 1.0.3
+- Added orbit elements and orbit vectors constructors for KeplerOrbitData.
+- Added some small tools for KeplerOrbitMover and KeplerOrbitLineDisplay.
+- Extended Readme and added concept document.
+
+version 1.0.2
+- Added Velocuty Handler Scale slider parameter.
+
+version 1.0.1
+- Circularize orbit tool now doesn't invert the velocity.
+- KeplerOrbitLineDisplay now draws periapsi-apoapsis line instead of ascending-descending nodes, because ecliptic plane is static and not helpful.
+- Added second example scene with layered hierarchy of orbiting objects.
+
+version 1.0:
+- Initial release.
