@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Target : MonoBehaviour
 {
     [SerializeField] public float health = 100f;
     [SerializeField] public GameObject[] wreckage;
@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float itemXSpread = 10f;
     [SerializeField] public float itemYSpread = 10f;
     [SerializeField] public float itemZSpread = 10f;
+    
     public GameObject destExpo;
     
 
@@ -38,7 +39,7 @@ public class Enemy : MonoBehaviour
     void CreateWreckage()
     {
         //Oluşturulacak enkazın lokasyonunun rastgeleleştirilmesi
-        Vector3 pos= new Vector3(Random.Range(-itemXSpread, itemXSpread),
+        Vector3 pos= new Vector3(          Random.Range(-itemXSpread, itemXSpread),
                                            Random.Range(-itemYSpread, itemYSpread),
                                            Random.Range(-itemZSpread, itemZSpread));
         transform.position += pos;
@@ -52,10 +53,7 @@ public class Enemy : MonoBehaviour
 
         //Instantiate
         GameObject clone = Instantiate(wreckage[randomIndex],randPosition,randRotation);
-    }
-
-   
+        
+    }   
 
 }
-
-

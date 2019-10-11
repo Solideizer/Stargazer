@@ -17,9 +17,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void Turn()
     {
-        Vector3 pos = target.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(pos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationalDamp);
+        //if not destroyed
+        if(target != null)
+        {
+            Vector3 pos = target.position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(pos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationalDamp);
+        }
+       
     }
 
     private void Move()

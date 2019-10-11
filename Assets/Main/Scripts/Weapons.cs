@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour{   
 
-    [SerializeField] private float maxDistance = 100f;
+    [SerializeField] public float maxDistance = 400f;
     [SerializeField] public float damage = 20f;
     [SerializeField] float fireDelay = 2f;
-    
+    [SerializeField] float laserOffTime = 0.1f;
+    LineRenderer laser;
+    public GameObject hitExplosion;
+
     bool canFire;
+
+    void Awake()
+    {
+        laser = GetComponent<LineRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         canFire = true;
+        laser.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -22,9 +32,12 @@ public class Weapons : MonoBehaviour{
         if (canFire && Input.GetButtonDown("Fire1"))
         {
             Shoot();
-            AudioManager.PlaySound("laser");
+            ActivateLasers();
+            AudioManager.PlaySound("laser");            
             canFire = false;
             Invoke("CanFire", fireDelay);
+            Invoke("DeactivateLasers", laserOffTime);
+
         }        
     }
 
@@ -41,18 +54,32 @@ public class Weapons : MonoBehaviour{
             print(hitInfo.distance);
             Debug.DrawLine(ray.origin, hitInfo.point, Color.red);
 
-            Enemy targetInfo = hitInfo.transform.GetComponent<Enemy>();
-            if(targetInfo.tag == "Enemy")
+            Target targetInfo = hitInfo.transform.GetComponent<Target>();
+            if(targetInfo.tag != null)
             {
+                Instantiate(hitExplosion, hitInfo.point, Quaternion.identity, transform);
                 targetInfo.TakeDamage(damage);
             }            
         }        
     }
 
-
     void CanFire()
     {
+        laser.enabled = false;
         canFire = true;
+    }
+
+    void ActivateLasers()
+    {
+        laser.SetPosition(0, transform.position);        
+        laser.SetPosition(1, transform.position + transform.forward * maxDistance);        
+        laser.enabled = true;   
+        
+    }
+
+    void DeactivateLasers()
+    {
+        laser.enabled = false;
     }
 
 

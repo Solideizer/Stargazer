@@ -6,7 +6,15 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float weaponMaxDis = 300f;
+    [SerializeField] float enemyDamage = 20f;
+    [SerializeField] float fireDelay = 4f;
 
+    bool canFire;
+
+    private void Start()
+    {
+        canFire = true;
+    }
 
     private void Update()
     {
@@ -17,32 +25,37 @@ public class EnemyAttack : MonoBehaviour
 
     bool isInFront()
     {
-        Vector3 directonToTarget = transform.position - target.position;
-        float angle = Vector3.Angle(transform.forward, directonToTarget);
+        //if not destroyed
+        if(target != null)
+        {
+            Vector3 directonToTarget = transform.position - target.position;
+            float angle = Vector3.Angle(transform.forward, directonToTarget);
 
-        if (Mathf.Abs(angle) > 90 && Mathf.Abs(angle) < 270)
-        {
-            Debug.DrawLine(transform.position, target.position, Color.green);
-            return true;
-        }
-        else
-        {
-            Debug.DrawLine(transform.position, target.position, Color.yellow);
-            return false;
-        }
-        
+            if (Mathf.Abs(angle) > 90 && Mathf.Abs(angle) < 270)
+            {
+                Debug.DrawLine(transform.position, target.position, Color.green);
+                return true;
+            }
+            else
+            {
+                Debug.DrawLine(transform.position, target.position, Color.yellow);
+                return false;
+            }
+        }        
+        return false;
     }
+
+
     bool haveLos()
     {
         RaycastHit hitInfo;
-        Vector3 direction = target.position - transform.position ;
-        Debug.DrawLine(transform.position, direction, Color.red);
+        Vector3 direction = target.position - transform.position ;        
 
-        if (Physics.Raycast(transform.position, direction, out hitInfo, weaponMaxDis))
+        if (Physics.Raycast(transform.position, direction, out hitInfo))
         {
             if (hitInfo.transform.CompareTag("Player"))
             {
-                Debug.Log("Firing from haveLos");
+                Debug.DrawLine(transform.position, direction, Color.red);                
                 return true;
             }
         }
@@ -51,9 +64,44 @@ public class EnemyAttack : MonoBehaviour
 
     void canAttack()
     {
-        if(haveLos() && isInFront() )
+        if(haveLos() && isInFront() && canFire )
         {
             Debug.Log("Firing from canAttack");
+           
+            Shoot();
+            AudioManager.PlaySound("laser");
+            canFire = false;
+            Invoke("CanFire", fireDelay);
+
         }
     }
+
+    public void Shoot()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hitInfo;
+
+        //Debug.DrawLine(ray.origin, ray.origin + ray.direction * weaponMaxDis, Color.green);
+
+        if (Physics.Raycast(ray, out hitInfo, weaponMaxDis))
+        {
+            
+
+            Target targetInfo = hitInfo.transform.GetComponent<Target>();
+            if (targetInfo.tag == "Player")
+            {
+                Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
+                print(hitInfo.collider.gameObject.name);
+                print(hitInfo.distance);
+                targetInfo.TakeDamage(enemyDamage);
+            }
+        }
+    }
+
+
+    void CanFire()
+    {
+        canFire = true;
+    }
+
 }
