@@ -88,7 +88,7 @@ public class EnemyAttack : MonoBehaviour
             
 
             Target targetInfo = hitInfo.transform.GetComponent<Target>();
-            if (targetInfo.tag == "Player")
+            if (targetInfo.CompareTag("Player"))
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
                 print(hitInfo.collider.gameObject.name);

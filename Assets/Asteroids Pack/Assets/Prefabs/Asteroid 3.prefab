@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 2842857464961259638}
   m_Layer: 0
   m_Name: Asteroid 3
-  m_TagString: Enemy
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
