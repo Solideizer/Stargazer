@@ -7,14 +7,24 @@ public class AudioManager : MonoBehaviour
     public static AudioClip lightSwitchSound;
     public static AudioClip thrusterAccSound;
     public static AudioClip thrusterDecSound;
+    public static AudioClip explosionSound;
+    public static AudioClip[] laserSounds = new AudioClip[4];
     public static AudioSource audioSrc;
+
+
     // Start is called before the first frame update
     void Start()
     {
         lightSwitchSound = Resources.Load<AudioClip>("lightSwitch");
         thrusterAccSound = Resources.Load<AudioClip>("thrusterAcc");
         thrusterDecSound = Resources.Load<AudioClip>("thrusterDec");
-        audioSrc = GetComponent<AudioSource>();
+        explosionSound   = Resources.Load<AudioClip>("explosion");
+        laserSounds[0]   = Resources.Load<AudioClip>("laser0");
+        laserSounds[1] = Resources.Load<AudioClip>("laser1");
+        laserSounds[2] = Resources.Load<AudioClip>("laser2");
+        laserSounds[3] = Resources.Load<AudioClip>("laser3");
+
+        audioSrc         = GetComponent<AudioSource>();
     }     
 
 
@@ -30,6 +40,13 @@ public class AudioManager : MonoBehaviour
                 break;
             case "thrusterDec":
                 audioSrc.PlayOneShot(thrusterDecSound);
+                break;
+            case "explosion":
+                audioSrc.PlayOneShot(explosionSound);
+                break;
+            case "laser":
+                int randomInd = Random.Range(0, laserSounds.Length);
+                audioSrc.PlayOneShot(laserSounds[randomInd]);
                 break;
         }
     }
