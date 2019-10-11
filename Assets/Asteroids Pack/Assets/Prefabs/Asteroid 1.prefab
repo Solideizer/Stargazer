@@ -342,11 +342,13 @@ MonoBehaviour:
   wreckage:
   - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
   - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
-  wreckageAmount: 50
-  itemXSpread: 50
-  itemYSpread: 50
-  itemZSpread: 50
-  destExpo: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
+  wreckageAmount: 200
+  itemXSpread: 15
+  itemYSpread: 15
+  itemZSpread: 15
+  destExpo: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
+  radius: 1500
+  power: 5000
 --- !u!1 &176588
 GameObject:
   m_ObjectHideFlags: 0

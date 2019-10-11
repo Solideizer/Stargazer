@@ -12,8 +12,10 @@ public class Target : MonoBehaviour
     [SerializeField] public float itemZSpread = 10f;
     
     public GameObject destExpo;
-    
 
+    public float radius = 5.0F;
+    public float power = 10.0F;
+  
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -53,7 +55,24 @@ public class Target : MonoBehaviour
 
         //Instantiate
         GameObject clone = Instantiate(wreckage[randomIndex],randPosition,randRotation);
+
+        //Explosion
+        Vector3 explosionPos = randPosition;
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+            if (rb != null)
+                rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
+        }        
+
         
-    }   
+
+    }
+
+   
+
+
 
 }

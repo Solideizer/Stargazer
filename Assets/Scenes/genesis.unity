@@ -326,6 +326,16 @@ PrefabInstance:
       propertyPath: randomRotation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114571875336431680, guid: 10c7301dfe1e94d41ad2059639e36c74,
+        type: 3}
+      propertyPath: range
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114571875336431680, guid: 10c7301dfe1e94d41ad2059639e36c74,
+        type: 3}
+      propertyPath: asteroidCount
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10c7301dfe1e94d41ad2059639e36c74, type: 3}
 --- !u!1 &135071072
@@ -1714,6 +1724,8 @@ MonoBehaviour:
   itemYSpread: 10
   itemZSpread: 10
   destExpo: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
+  radius: 5
+  power: 10
 --- !u!1 &1431633223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1484300527392520, guid: 240f47aa4fc0d3d43be46591329ba35b,
@@ -2479,6 +2491,8 @@ MonoBehaviour:
   itemYSpread: 10
   itemZSpread: 10
   destExpo: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
+  radius: 100
+  power: 200
 --- !u!114 &2009830922
 MonoBehaviour:
   m_ObjectHideFlags: 0
