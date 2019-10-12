@@ -9,6 +9,7 @@ public class ProceduralGeneration : MonoBehaviour
     [SerializeField] public float itemXSpread = 10f;
     [SerializeField] public float itemYSpread = 10f;
     [SerializeField] public float itemZSpread = 10f;
+   
 
 
     // Start is called before the first frame update
@@ -39,7 +40,6 @@ public class ProceduralGeneration : MonoBehaviour
         //Instantiate
         GameObject clone = Instantiate(objects[randomIndex], randPosition, randRotation);
 
-
-
+       
     }
 }
