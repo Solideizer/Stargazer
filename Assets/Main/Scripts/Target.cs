@@ -10,11 +10,10 @@ public class Target : MonoBehaviour
     [SerializeField] public float itemXSpread = 10f;
     [SerializeField] public float itemYSpread = 10f;
     [SerializeField] public float itemZSpread = 10f;
-    
-    public GameObject destExpo;
+    [SerializeField] public float radius = 5.0F;
+    [SerializeField] public float power = 10.0F;
 
-    public float radius = 5.0F;
-    public float power = 10.0F;
+    public GameObject destExpo;    
   
     public void TakeDamage(float amount)
     {
