@@ -27,13 +27,13 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.431
+    value: 0.577
   smoothness:
     overrideState: 1
-    value: 0.165
+    value: 0.31
   roundness:
     overrideState: 1
-    value: 0.5
+    value: 0.639
   rounded:
     overrideState: 0
     value: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.14
+    value: 1.22
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -100,7 +100,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1.75
+    value: 1.56
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 1
+    value: 2
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -3
+    value: 8
   tint:
     overrideState: 1
     value: 1
@@ -181,10 +181,10 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 0.4
+    value: 0.2
   contrast:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 3
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -214,13 +214,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.8744593, y: 0.97063184, z: 1, w: 0.019821607}
+    value: {x: 0.9718193, y: 1, z: 0.9519559, w: 0.09910801}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0.09910803}
+    value: {x: 1, y: 0.96110636, z: 0.9034201, w: 0.11892964}
   gain:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0.079286404}
+    value: {x: 1, y: 1, z: 1, w: 9.382035e-10}
   masterCurve:
     overrideState: 0
     value:
@@ -1439,19 +1439,19 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 6.19
+    value: 3.15
   threshold:
     overrideState: 1
-    value: 1.04
+    value: 1
   softKnee:
     overrideState: 1
-    value: 0.507
+    value: 0.5
   clamp:
-    overrideState: 1
-    value: 65472
+    overrideState: 0
+    value: 1
   diffusion:
     overrideState: 1
-    value: 6.31
+    value: 7
   anamorphicRatio:
     overrideState: 1
     value: 0.45
