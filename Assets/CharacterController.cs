@@ -8,12 +8,12 @@ public class CharacterController : MonoBehaviour
     public float speed = 10.0f;
     private float translation;
     private float straffe;
+    public float thrustForce = 1f;
 
     // Use this for initialization
     void Start()
     {
-        // turn off the cursor
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
@@ -24,11 +24,27 @@ public class CharacterController : MonoBehaviour
         translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(straffe, 0, translation);
-
-        //if (Input.GetKeyDown("escape"))
-        //{
-        //    turn on the cursor
-        //    Cursor.lockState = CursorLockMode.None;
-        //}
+        if (Input.GetKeyDown("escape"))
+        {
+            
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        thrusters();
+            
     }
+
+    void thrusters()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * thrustForce, Space.World);
+        }
+        else if (Input.GetKey(KeyCode.F))
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * thrustForce, Space.World);
+        }
+    }
+
+
+
 }

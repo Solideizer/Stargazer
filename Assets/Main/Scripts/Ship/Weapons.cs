@@ -55,11 +55,15 @@ public class Weapons : MonoBehaviour{
             Debug.DrawLine(ray.origin, hitInfo.point, Color.red);
 
             Target targetInfo = hitInfo.transform.GetComponent<Target>();
-            //if(targetInfo.tag != null)
-            //{
+            if(targetInfo.tag != null)
+            {
                 Instantiate(hitExplosion, hitInfo.point, Quaternion.identity, transform);
                 targetInfo.TakeDamage(damage);
-            //}            
+            }
+            else
+            {
+                return;
+            }            
         }        
     }
 

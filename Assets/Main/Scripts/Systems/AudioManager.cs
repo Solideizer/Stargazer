@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioClip thrusterAccSound;
     public static AudioClip thrusterDecSound;
     public static AudioClip explosionSound;
+    public static AudioClip cockpitExitSound;
     public static AudioClip[] laserSounds = new AudioClip[4];
     public static AudioSource audioSrc;
 
@@ -23,6 +24,7 @@ public class AudioManager : MonoBehaviour
         laserSounds[1] = Resources.Load<AudioClip>("laser1");
         laserSounds[2] = Resources.Load<AudioClip>("laser2");
         laserSounds[3] = Resources.Load<AudioClip>("laser3");
+        cockpitExitSound = Resources.Load<AudioClip>("cockpitExit");
 
         audioSrc         = GetComponent<AudioSource>();
     }     
@@ -47,6 +49,9 @@ public class AudioManager : MonoBehaviour
             case "laser":
                 int randomInd = Random.Range(0, laserSounds.Length);
                 audioSrc.PlayOneShot(laserSounds[randomInd]);
+                break;
+            case "cockpitExit":
+                audioSrc.PlayOneShot(cockpitExitSound);
                 break;
         }
     }
