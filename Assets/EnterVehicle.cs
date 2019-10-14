@@ -7,7 +7,7 @@ public class EnterVehicle : MonoBehaviour
     public GameObject playerShip;
     public GameObject cockpitRef;
     Vector3 exitPoint;
-    [SerializeField] Vector3 exitOffset = new Vector3(-10, 0, 0);
+    [SerializeField] Vector3 exitOffset = new Vector3(-20, 0, 0);
     Vector3 enterPoint;
     
     public Camera fpCam;
@@ -80,7 +80,7 @@ public class EnterVehicle : MonoBehaviour
             }
 
         }
-        Debug.Log("on stay");
+       // Debug.Log("on stay");
 
         if (Input.GetKey(KeyCode.O))
         {
