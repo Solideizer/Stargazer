@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour{
 
-    public Light cockpitLight;    
+    public Light cockpitLight;
+    public GameObject fpPlayer;
+    public GameObject cockpitRef;
 
     private void Start()
     {
@@ -13,7 +15,17 @@ public class PlayerInput : MonoBehaviour{
     private void Update()
     {
         CockpitLightSwitch();
+        CreatePlayer();
 
+    }
+
+    void CreatePlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Instantiate(fpPlayer, cockpitRef.transform.position, Quaternion.identity);
+            fpPlayer.SetActive(true);
+        }
     }
 
     void CockpitLightSwitch()
