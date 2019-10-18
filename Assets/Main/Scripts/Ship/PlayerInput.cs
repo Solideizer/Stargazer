@@ -7,7 +7,9 @@ public class PlayerInput : MonoBehaviour{
     public Light cockpitLight;
     public GameObject fpPlayer;
     public GameObject cockpitRef;
+    Weapons[] weaponsArray;
     Vector3 offset = new Vector3(0, 0.3f, 0);
+
 
    
     public GameObject playerShip;    
@@ -45,7 +47,12 @@ public class PlayerInput : MonoBehaviour{
             fpCam.gameObject.SetActive(true);
 
             playerShip.GetComponent<ShipInput>().enabled = false;
-            playerShip.GetComponentInChildren<Weapons>().enabled = false;
+            
+            weaponsArray = playerShip.GetComponentsInChildren<Weapons>();
+            for (int i = 0; i < weaponsArray.Length; i++)
+            {
+                weaponsArray[i].enabled = false;
+            }
 
             Debug.Log("shipInput disabled");
 

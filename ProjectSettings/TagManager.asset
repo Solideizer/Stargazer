@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Destructible
   - FPPlayer
+  - SpaceStation
   layers:
   - Default
   - TransparentFX

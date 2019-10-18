@@ -28,8 +28,8 @@ public class ProceduralGeneration : MonoBehaviour
                                   Random.Range(-itemYSpread, itemYSpread),
                                   Random.Range(-itemZSpread, itemZSpread));
 
-        transform.position += pos;
-        Vector3 randPosition = transform.position;
+        //transform.position += pos;
+        Vector3 randPosition = transform.position + pos;
 
         //Oluşacak objelerin rastgele seçimi
         int randomIndex = Random.Range(0, objects.Length);

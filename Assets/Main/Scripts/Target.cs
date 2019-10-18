@@ -28,7 +28,7 @@ public class Target : MonoBehaviour
     {
         AudioManager.PlaySound("explosion");
         Instantiate(destExpo,transform.position,Quaternion.identity,transform);
-        Destroy(gameObject,0.5f);
+        Destroy(gameObject);
 
         //wreckage part of the code
         for (int i = 0; i < wreckageAmount; i++)

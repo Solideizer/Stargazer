@@ -3477,6 +3477,16 @@ PrefabInstance:
       propertyPath: m_AllowDynamicResolution
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4467991452419011091, guid: 9add5d47eef6bd446a1889e1807e9d34,
+        type: 3}
+      propertyPath: laserOffTime
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467991452333741659, guid: 9add5d47eef6bd446a1889e1807e9d34,
+        type: 3}
+      propertyPath: laserOffTime
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9add5d47eef6bd446a1889e1807e9d34, type: 3}
 --- !u!4 &736412318 stripped
