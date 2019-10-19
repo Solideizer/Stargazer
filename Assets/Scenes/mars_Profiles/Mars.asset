@@ -57,59 +57,9 @@ MonoBehaviour:
   m_Name: Mars
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 4815143801569700092}
   - {fileID: 8836948197854562165}
   - {fileID: 4849135167181906608}
   - {fileID: -7964725429284356290}
---- !u!114 &4815143801569700092
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
-  m_Name: AmbientOcclusion
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  mode:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 1.22
-  color:
-    overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
-  ambientOnly:
-    overrideState: 0
-    value: 1
-  noiseFilterTolerance:
-    overrideState: 0
-    value: 0
-  blurTolerance:
-    overrideState: 0
-    value: -4.6
-  upsampleTolerance:
-    overrideState: 0
-    value: -12
-  thicknessModifier:
-    overrideState: 1
-    value: 1.56
-  directLightingStrength:
-    overrideState: 0
-    value: 0
-  radius:
-    overrideState: 1
-    value: 0.52
-  quality:
-    overrideState: 1
-    value: 4
 --- !u!114 &4849135167181906608
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -127,7 +77,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 0
+    overrideState: 1
     value: 1
   externalLut:
     overrideState: 0
@@ -175,7 +125,7 @@ MonoBehaviour:
     value: 1
   saturation:
     overrideState: 1
-    value: -1
+    value: -5
   brightness:
     overrideState: 0
     value: 0
@@ -214,13 +164,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9718193, y: 1, z: 0.9519559, w: 0.09910801}
+    value: {x: 1, y: 0.99715936, z: 0.89583963, w: 0.016120454}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 0.96110636, z: 0.9034201, w: 0.11892964}
+    value: {x: 0.993722, y: 1, z: 0.92250186, w: 0.05668897}
   gain:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 9.382035e-10}
+    value: {x: 0.96122766, y: 1, z: 0.8700743, w: -0.06224065}
   masterCurve:
     overrideState: 0
     value:
@@ -1439,22 +1389,22 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 3.15
+    value: 2.25
   threshold:
     overrideState: 1
     value: 1
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 0.7
   clamp:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 3.2
   diffusion:
     overrideState: 1
-    value: 7
+    value: 6.5
   anamorphicRatio:
-    overrideState: 1
-    value: 0.45
+    overrideState: 0
+    value: 1
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
