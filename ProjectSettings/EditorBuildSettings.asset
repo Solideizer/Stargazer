@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/mars.unity
     guid: e5c8764246c92ee439f8ef35c5396ba7
+  - enabled: 1
+    path: Assets/Scenes/habitable.unity
+    guid: e24aafb7981a30243a181dc90765507f
   m_configObjects: {}

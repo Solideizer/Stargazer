@@ -9,6 +9,7 @@ TagManager:
   - Destructible
   - FPPlayer
   - SpaceStation
+  - Waypoints
   layers:
   - Default
   - TransparentFX

@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] private float speed = 10.0f;
+    [SerializeField] private float thrustForce = 1f;
 
-    public float speed = 10.0f;
     private float translation;
-    private float straffe;
-    public float thrustForce = 1f;
-
-    // Use this for initialization
+    private float straffe;    
+    private Rigidbody rb;
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
-    {
-        // Input.GetAxis() is used to get the user's input
-        // You can furthor set it on Unity. (Edit, Project Settings, Input)
+    {        
         translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(straffe, 0, translation);
@@ -28,22 +26,23 @@ public class CharacterController : MonoBehaviour
         {
             
             Cursor.lockState = CursorLockMode.Locked;
-        }
-        thrusters();
+        }       
             
     }
 
-    void thrusters()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.R))
         {
-            transform.Translate(Vector3.up * Time.deltaTime * thrustForce, Space.World);
+            rb.AddForce(0, thrustForce * Time.deltaTime, 0 , ForceMode.Impulse);            
         }
         else if (Input.GetKey(KeyCode.F))
         {
-            transform.Translate(Vector3.down * Time.deltaTime * thrustForce, Space.World);
+            rb.AddForce(0, -thrustForce * Time.deltaTime, 0 , ForceMode.Impulse);
         }
     }
+
+   
 
 
 
