@@ -87,13 +87,13 @@ public class EnemyAttack : MonoBehaviour
         {
             
 
-            Target targetInfo = hitInfo.transform.GetComponent<Target>();
+            EnemyHumanoid targetInfo = hitInfo.transform.GetComponent<EnemyHumanoid>();
             if (targetInfo.CompareTag("Player"))
             {
                 Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
                 print(hitInfo.collider.gameObject.name);
                 print(hitInfo.distance);
-                targetInfo.TakeDamage(enemyDamage);
+                targetInfo.takeDamage(enemyDamage);
             }
         }
     }

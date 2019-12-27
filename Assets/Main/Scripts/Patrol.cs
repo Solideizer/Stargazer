@@ -8,7 +8,7 @@ public class Patrol : StateMachineBehaviour
     GameObject NPC;
     GameObject[] waypoints;
     int currentWP;
-    public float moveSpeed = 0.5f;
+    public float moveSpeed = 0.05f;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class Patrol : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (waypoints.Length == 0) return;
-        if (Vector3.Distance(waypoints[currentWP].transform.position, NPC.transform.position) < 10.0f)
+        if (Vector3.Distance(waypoints[currentWP].transform.position, NPC.transform.position) < 5.0f)
         {
             currentWP++;
             if (currentWP >= waypoints.Length)

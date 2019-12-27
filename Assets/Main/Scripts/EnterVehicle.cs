@@ -31,8 +31,9 @@ public class EnterVehicle : MonoBehaviour
 
                 cockpitCam.GetComponent<Camera>().enabled = true;
                 fpCam.GetComponent<Camera>().enabled = false;
+                
                 fpCam.GetComponent<MouseCamLook>().enabled = false;    
-
+               
 
                 fpPlayer.transform.parent = cockpitRef.gameObject.transform;
                 fpPlayer.SetActive(false);                

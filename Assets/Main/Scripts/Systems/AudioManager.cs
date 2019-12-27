@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public static AudioClip scaryAmbianceSound;
     public static AudioClip miningLaserSound;
     public static AudioClip thrusterSound;
+    public static AudioClip gunShootSound;
     public static AudioClip[] laserSounds = new AudioClip[4];
     public static AudioSource audioSrc;
 
@@ -30,6 +31,7 @@ public class AudioManager : MonoBehaviour
         cockpitExitSound = Resources.Load<AudioClip>("cockpitExit");
         scaryAmbianceSound = Resources.Load<AudioClip>("scaryambiance");
         miningLaserSound = Resources.Load<AudioClip>("mininglaser");
+        gunShootSound = Resources.Load<AudioClip>("gunshoot");
         //thrusterSound = Resources.Load<AudioClip>("thrusterSound");
 
         audioSrc         = GetComponent<AudioSource>();
@@ -64,6 +66,9 @@ public class AudioManager : MonoBehaviour
                 break;
             case "mininglaser":
                 audioSrc.PlayOneShot(miningLaserSound);
+                break;
+            case "gunshoot":
+                audioSrc.PlayOneShot(gunShootSound);
                 break;
             //case "thruster":
             //    audioSrc.PlayOneShot(thrusterSound);

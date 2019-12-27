@@ -43,7 +43,7 @@ public class PlayerInput : MonoBehaviour{
             //fpPlayer.SetActive(true);
 
             cockpitCam.GetComponent<Camera>().enabled = false;
-            fpCam.GetComponent<Camera>().enabled = true;
+            fpCam.GetComponent<Camera>().enabled = true;            
             fpCam.gameObject.SetActive(true);
 
             playerShip.GetComponent<ShipInput>().enabled = false;
@@ -58,8 +58,8 @@ public class PlayerInput : MonoBehaviour{
 
             exitPoint = cockpitRef.transform.position + exitOffset;
             fpPlayer.transform.position = exitPoint;
-            Debug.Log("fpplayer exited");            
-
+            Debug.Log("fpplayer exited");
+            
             fpPlayer.GetComponent<CharacterController>().enabled = true;
             fpCam.GetComponent<MouseCamLook>().enabled = true;
 
