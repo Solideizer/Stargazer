@@ -10,6 +10,7 @@ TagManager:
   - FPPlayer
   - SpaceStation
   - Waypoints
+  - SunPivot
   layers:
   - Default
   - TransparentFX
