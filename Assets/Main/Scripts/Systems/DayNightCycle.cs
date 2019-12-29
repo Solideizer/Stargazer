@@ -26,7 +26,7 @@ public class DayNightCycle : MonoBehaviour
     public float _duskSunIntensity = 0.25f;
     public float _nightSunIntensity = 0f;
 
-    public float _ambientDimTime = 0.0001f;         //speed at which ambient light is adjusted
+    public float _ambientDimTime = 0.01f;         //speed at which ambient light is adjusted
     public float _dawnAmbientIntensity = 0.5f;
     public float _dayAmbientIntensity = 1f;
     public float _duskAmbientIntensity = 0.25f;
@@ -177,7 +177,7 @@ public class DayNightCycle : MonoBehaviour
         //ambient intensity adjustments
         if (RenderSettings.ambientIntensity < _dawnAmbientIntensity)
         {
-            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime;
+            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime * TimeScale;
         }
         if (RenderSettings.ambientIntensity > _dawnAmbientIntensity)
         {
@@ -206,7 +206,7 @@ public class DayNightCycle : MonoBehaviour
         //ambient intensity adjustments
         if (RenderSettings.ambientIntensity < _dayAmbientIntensity)
         {
-            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime;
+            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime * TimeScale;
         }
         if (RenderSettings.ambientIntensity > _dayAmbientIntensity)
         {
@@ -234,7 +234,7 @@ public class DayNightCycle : MonoBehaviour
         //ambient intensity adjustments
         if (RenderSettings.ambientIntensity > _duskAmbientIntensity)
         {
-            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime;
+            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime * TimeScale;
         }
         if (RenderSettings.ambientIntensity < _duskAmbientIntensity)
         {
@@ -262,7 +262,7 @@ public class DayNightCycle : MonoBehaviour
         //ambient intensity adjustments
         if (RenderSettings.ambientIntensity > _nightAmbientIntensity)
         {
-            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime;
+            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime * TimeScale;
         }
         if (RenderSettings.ambientIntensity < _nightAmbientIntensity)
         {

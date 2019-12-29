@@ -61,7 +61,7 @@ public class PlayerInput : MonoBehaviour{
             Debug.Log("fpplayer exited");
             
             fpPlayer.GetComponent<CharacterController>().enabled = true;
-            fpCam.GetComponent<MouseCamLook>().enabled = true;
+            fpCam.GetComponent<MouseLook>().enabled = true;
 
             fpPlayer.transform.parent = null;
             fpPlayer.SetActive(true);
