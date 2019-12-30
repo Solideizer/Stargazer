@@ -90,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveThePlayer()
     {
-
        move_Direction = new Vector3(Input.GetAxis("Horizontal"), 0f,
                                          Input.GetAxis("Vertical"));
 
@@ -100,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
        ApplyGravity();
 
        character_Controller.Move(move_Direction);
-
 
     }// move player
 
