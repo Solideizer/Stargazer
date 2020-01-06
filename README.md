@@ -3,6 +3,7 @@ A passion project where I experiment with procedural generation and unique gamep
 
 Project is developed on Unity 2019.1.10f1
 
+![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/123123.jpg)
 ![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/image_00042019-12-29.jpg)
 ![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/asdas.jpg)
 ![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/aaaaaaaaa.jpg)
