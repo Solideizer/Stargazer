@@ -19,10 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float sprintSpeed = 10f;
     private float gravity = 10f;
 
-    private float jump_Force = 5f;
-    [SerializeField] private float thrustForce = 200f;
-    private float vertical_Velocity;
-    private Rigidbody rb;
+    private float jump_Force = 5f;    
+    private float vertical_Velocity;  
 
     private PlayerFootsteps playerFootsteps;
     private float sprintVolume = 1f;
@@ -36,8 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        character_Controller = GetComponentInParent<CharacterController>();
-        rb = GetComponent<Rigidbody>();
+        character_Controller = GetComponentInParent<CharacterController>();        
         playerFootsteps = GetComponentInChildren<PlayerFootsteps>();
     }
 
@@ -51,8 +48,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
        MoveThePlayer();
-       Sprint();
-       Thruster();
+       Sprint();       
        Crouch();
 
     }
@@ -126,19 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
-        }
-
-        void Thruster()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                rb.AddForce(0, thrustForce * Time.deltaTime, 0, ForceMode.Impulse);
-            }
-            else if (Input.GetKeyDown(KeyCode.F))
-            {
-                rb.AddForce(0, -thrustForce * Time.deltaTime, 0, ForceMode.Impulse);
-            }
-        }
+        }      
 
         void ApplyGravity()
         {
