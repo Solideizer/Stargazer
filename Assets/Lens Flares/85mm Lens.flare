@@ -186,7 +186,7 @@ Flare:
     m_Rotate: 1
     m_Zoom: 1
     m_Fade: 1
-  m_UseFog: 1
+  m_UseFog: 0
 --- !u!1002 &12100001
 EditorExtensionImpl:
   serializedVersion: 6
