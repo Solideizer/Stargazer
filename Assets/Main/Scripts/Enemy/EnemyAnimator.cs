@@ -11,11 +11,11 @@ public class EnemyAnimator : MonoBehaviour {
 	}
 	
     public void Walk(bool walk) {
-        anim.SetBool("walk",true);
+        anim.SetBool("walk", walk);
     }
 
     public void Run(bool run) {
-        anim.SetBool("run", true);
+        anim.SetBool("run", run);
     }
 
     public void Attack() {

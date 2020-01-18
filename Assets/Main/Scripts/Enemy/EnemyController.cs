@@ -90,7 +90,8 @@ public class EnemyController : MonoBehaviour {
         // add to the patrol timer
         patrol_Timer += Time.deltaTime;
 
-        if(patrol_Timer > patrol_For_This_Time) {
+        if(patrol_Timer > patrol_For_This_Time)
+        {
 
             SetNewRandomDestination();
 
@@ -98,7 +99,8 @@ public class EnemyController : MonoBehaviour {
 
         }
 
-        if(navAgent.velocity.sqrMagnitude > 0) {
+        if(navAgent.velocity.sqrMagnitude > 0)
+        {
         
             enemy_Anim.Walk(true);
         
@@ -135,11 +137,11 @@ public class EnemyController : MonoBehaviour {
 
         if (navAgent.velocity.sqrMagnitude > 0) {
 
-            enemy_Anim.Walk(true);
+            enemy_Anim.Run(true);
 
         } else {
 
-            enemy_Anim.Walk(false);
+            enemy_Anim.Run(false);
 
         }
 
@@ -147,7 +149,7 @@ public class EnemyController : MonoBehaviour {
         if(Vector3.Distance(transform.position, target.position) <= attack_Distance) {
 
             // stop the animations
-            //enemy_Anim.Run(false);
+            enemy_Anim.Run(false);
             enemy_Anim.Walk(false);
             enemy_State = EnemyState.ATTACK;
 
@@ -160,7 +162,7 @@ public class EnemyController : MonoBehaviour {
             // player run away from enemy
 
             // stop running
-            enemy_Anim.Walk(false);
+            enemy_Anim.Run(false);
 
             enemy_State = EnemyState.PATROL;
 

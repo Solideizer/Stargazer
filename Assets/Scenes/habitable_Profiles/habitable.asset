@@ -1,33 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3492269830960197627
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 10
-  aperture:
-    overrideState: 1
-    value: 3
-  focalLength:
-    overrideState: 1
-    value: 50
-  kernelSize:
-    overrideState: 1
-    value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +17,6 @@ MonoBehaviour:
   - {fileID: 5914928277149353738}
   - {fileID: 6454412903063123526}
   - {fileID: 3230795438246348123}
-  - {fileID: -3492269830960197627}
 --- !u!114 &3230795438246348123
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -108,7 +79,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.3
+    value: 1.5
   threshold:
     overrideState: 1
     value: 0.65
@@ -162,7 +133,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 1
+    value: 2
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -190,10 +161,10 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 0
+    value: -3
   tint:
     overrideState: 1
-    value: 12
+    value: 6
   colorFilter:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -241,13 +212,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9398592, y: 0.93734974, z: 1, w: -0.02342973}
+    value: {x: 0.85748273, y: 0.8777057, z: 1, w: -0.02342973}
   gamma:
     overrideState: 0
     value: {x: 0.96510696, y: 1, z: 0.98336065, w: -0.05831143}
   gain:
     overrideState: 1
-    value: {x: 1, y: 0.82812655, z: 0.93866754, w: 0.3016288}
+    value: {x: 1, y: 0.9023053, z: 0.9875293, w: 0.13342026}
   masterCurve:
     overrideState: 0
     value:
