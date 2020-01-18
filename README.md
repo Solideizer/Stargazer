@@ -21,7 +21,7 @@ Planned Features :
 * Harvestables on Planets
 * NPC's
 * First Person Mining
-* Drivable Vehicle(s) at Planet Surfaces 
+* Drivable Vehicle(s) 
 * Fuel Consumption for Spaceships
 * Hostile Creatures on Planets
 * Quest System
