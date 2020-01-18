@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 431440}
   - component: {fileID: 3331442}
   - component: {fileID: 2331442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PalmTree_dual_trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 431442}
   - component: {fileID: 3331444}
   - component: {fileID: 2331444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PalmTree_dual_leafs_2sided
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 431444}
   - component: {fileID: 6431444}
-  m_Layer: 0
+  - component: {fileID: 9018079288919646514}
+  m_Layer: 9
   m_Name: PalmTreeDualStraightTwoSided
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,3 +202,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 6a19eafc9d24ca04fb2d532742cc211d, type: 3}
+--- !u!114 &9018079288919646514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b568c53897f43745a5ecb1468817d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalScaleMultiplier: 1
+  scaleUniformly: 1
+  uniformScaleMin: 0.1
+  uniformScaleMax: 3
+  xScaleMin: 0.1
+  xScaleMax: 3
+  yScaleMin: 0.1
+  yScaleMax: 3
+  zScaleMin: 0.1
+  zScaleMax: 3

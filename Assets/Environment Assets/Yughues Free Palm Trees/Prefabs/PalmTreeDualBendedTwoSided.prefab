@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 419418}
   - component: {fileID: 6426442}
-  m_Layer: 0
+  - component: {fileID: 5464820438421120351}
+  m_Layer: 9
   m_Name: PalmTreeDualBendedTwoSided
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +48,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 31e0cf65c1498bb459ad7f1c13ad1abc, type: 3}
+--- !u!114 &5464820438421120351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b568c53897f43745a5ecb1468817d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalScaleMultiplier: 1
+  scaleUniformly: 1
+  uniformScaleMin: 0.1
+  uniformScaleMax: 3
+  xScaleMin: 0.1
+  xScaleMax: 3
+  yScaleMin: 0.1
+  yScaleMax: 3
+  zScaleMin: 0.1
+  zScaleMax: 3
 --- !u!1 &119420
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +81,7 @@ GameObject:
   - component: {fileID: 419420}
   - component: {fileID: 3319418}
   - component: {fileID: 2319418}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PalmTree_dual_bended_leafs_2sided
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +158,7 @@ GameObject:
   - component: {fileID: 419422}
   - component: {fileID: 3319420}
   - component: {fileID: 2319420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PalmTree_dual_bended_trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
