@@ -29,7 +29,8 @@ A passion project where I experiment with procedural generation and unique gamep
 
 
 ![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/123123.jpg)
+![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/image_00102020-01-19.jpg)
 ![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/image_00042019-12-29.jpg)
 ![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/asdas.jpg)
 ![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/aaaaaaaaa.jpg)
-![screenshot](https://github.com/Solideizer/Stargazer/blob/master/Screenshots/image_00102020-01-19.jpg)
+
