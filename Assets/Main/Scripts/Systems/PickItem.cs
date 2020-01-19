@@ -13,7 +13,6 @@ public class PickItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Pick(positionToSpawn, rotationToSpawn);
     }
 
