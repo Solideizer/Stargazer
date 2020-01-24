@@ -76,15 +76,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalScaleMultiplier: 1
-  scaleUniformly: 1
+  scaleUniformly: 0
   uniformScaleMin: 0.3
   uniformScaleMax: 3
-  xScaleMin: 0.1
-  xScaleMax: 3
-  yScaleMin: 0.1
-  yScaleMax: 3
-  zScaleMin: 0.1
-  zScaleMax: 3
+  xScaleMin: 1
+  xScaleMax: 2
+  yScaleMin: 1
+  yScaleMax: 2
+  zScaleMin: 1
+  zScaleMax: 2
 --- !u!136 &5933857501912131221
 CapsuleCollider:
   m_ObjectHideFlags: 0

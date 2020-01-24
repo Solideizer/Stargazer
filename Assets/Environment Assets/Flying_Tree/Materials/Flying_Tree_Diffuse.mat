@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Flying_Tree_Diffuse
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _GLOSSINESS_FROM_BASE_ALPHA _NORMALMAP _SPECULAR_COLOR
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _EMISSION _GLOSSINESS_FROM_BASE_ALPHA _NORMALMAP _SPECULAR_COLOR
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -94,7 +94,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.5439355, g: 0.6509434, b: 0.43907973, a: 1}
+    - _EmissionColor: {r: 0.57660156, g: 1.1486983, b: 0, a: 1}
     - _SpecColor: {r: 0.095588185, g: 0.095588185, b: 0.095588185, a: 1}
 --- !u!114 &4767849325324887973
 MonoBehaviour:
