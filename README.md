@@ -7,11 +7,12 @@ A passion project where I experiment with procedural generation and unique gamep
 - [x] 2 Playable planets with distinct habitats/flora/fauna 
 - [x] Day/Night Cycle 
 - [x] Procedurally Placed Vegetation/Rocks etc 
-- [x] Non-Hostile Creatures 
+- [x] Non-Hostile Creatures
+- [x] Hostile Creatures 
 - [x] Procedurally Generated Asteroid Fields 
 - [x] Spaceship Flight
 - [x] Spaceship Combat v1
-- [x] FPS Combat v1
+- [x] FPS Combat
 - [x] An early implementetion of Asteroid Mining
 
 ## **Planned Features :**
@@ -21,7 +22,6 @@ A passion project where I experiment with procedural generation and unique gamep
 - [ ] First Person Mining
 - [ ] Drivable Vehicle(s) 
 - [ ] Fuel Consumption for Spaceships
-- [ ] Hostile Creatures on Planets
 - [ ] Quest System
 - [ ] Inventory System
 - [ ] Save/Load System
