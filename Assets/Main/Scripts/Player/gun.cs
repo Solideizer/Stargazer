@@ -5,34 +5,61 @@ using UnityEngine;
 public class gun : MonoBehaviour
 {
 
-    public float damage = 100f;
-    public float range = 50f;
-    public float impactForce = 0.5f;
-    public float fireRate = 0.5f;
+    [SerializeField] private float damage = 100f;
+    [SerializeField] private float range = 50f;
+    [SerializeField] private int maxAmmo = 12;
+    private int currentAmmo;
+    [SerializeField] private float reloadTime = 3.2f;
+
+    [SerializeField] private float impactForce = 0.5f;
+    [SerializeField] private float fireRate = 1f;
+
     private float nextTimeToFire = 0f;
 
+    private Animator anim;
     public Camera fpsCam;
     //public ParticleSystem mf;
     public GameObject hitEffect;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        currentAmmo = maxAmmo;
+        
+    }
+  
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo)
         {
-            Shoot();
-            nextTimeToFire = Time.time + 1f / fireRate;                     
+            StartCoroutine(Reload());
         }
+
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0)
+        {
+            anim.SetBool("shoot", true);
+            Shoot();            
+            nextTimeToFire = Time.time + 1f / fireRate;            
+        }
+        else
+        {
+            anim.SetBool("shoot", false);
+        }
+
     }
+
     void Shoot()
     {
         AudioManager.PlaySound("gunshoot");
+        currentAmmo--;
         //mf.Play();
+
         RaycastHit hit;
         bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range);
 
         if (isHit)
         {
+            EnemyController.isHit = true;
             EnemyHumanoid target = hit.transform.GetComponent<EnemyHumanoid>();
             if (target != null)
             {
@@ -46,7 +73,18 @@ public class gun : MonoBehaviour
             Destroy(impactGo, 2f);
 
         }
+
+    }//void shoot
+
+    IEnumerator Reload()
+    {
+        AudioManager.PlaySound("reload");
+        anim.SetTrigger("reload");
+        yield return new WaitForSeconds(reloadTime);        
+        currentAmmo = maxAmmo;        
     }
+
 }
+
 
 

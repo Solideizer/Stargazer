@@ -115,7 +115,7 @@ Material:
     - _Brightness: 1
     - _BumpScale: 1
     - _Contrast: 1
-    - _ContrastMt: 1.4
+    - _ContrastMt: 1
     - _Cutoff: 0.52
     - _Cycle: 3
     - _Depth: 2.2
@@ -134,36 +134,36 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Intensity: 2
-    - _IntensityMicrowave: 0.2
-    - _IntensityMt: 2
-    - _IntensityNm: 0.5
-    - _IntensityRef: 1.6
+    - _IntensityMicrowave: 1.5
+    - _IntensityMt: 1
+    - _IntensityNm: 1
+    - _IntensityRef: 2
     - _InvFade: 0
-    - _MainDetailFlow: 1
+    - _MainDetailFlow: 2
     - _MainDetailScale: 3
     - _Metallic: 0
-    - _MicrowaveScale: 0.5
+    - _MicrowaveScale: 10
     - _MinuteDetailIntensity: 1.455
     - _MinuteDetailScrollSpeed: 0.089
     - _Mitigation: 22.4
     - _Mode: 0
     - _NormalDetailFlow: 1
-    - _NormalmapDetailScale: 0.7
+    - _NormalmapDetailScale: 10
     - _NormalmapDetailScaleA: 1
     - _NormalmapDetailScaleB: 5
-    - _NormalmapDetailSpeed: 0.3
+    - _NormalmapDetailSpeed: 0.2
     - _OcclusionStrength: 1
     - _Parallax: -0.2
-    - _ParallaxScale: 0.35
+    - _ParallaxScale: 1
     - _Radius: 1
     - _Reflect: 1
     - _RefractionIntensity: 0.61
     - _RefractionSpeed: 1.61
-    - _ReverseFlow: -5
+    - _ReverseFlow: 0
     - _Saturation: 1
-    - _Shininess: 0.1
+    - _Shininess: 0.155
     - _SmoothnessTextureChannel: 0
-    - _SoftFactor: 0.07
+    - _SoftFactor: 0.085
     - _SpecularHighlights: 1
     - _Speed: 0.5
     - _SpeedX: 0.1

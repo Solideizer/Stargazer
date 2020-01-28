@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour {
     private NavMeshAgent navAgent;
 
     private EnemyState enemy_State;
+    public static bool isHit;
 
     public float walk_Speed = 0.5f;
     public float run_Speed = 4f;
@@ -42,7 +43,7 @@ public class EnemyController : MonoBehaviour {
         navAgent = GetComponent<NavMeshAgent>();
 
         target = GameObject.FindWithTag("FPPlayer").transform;
-
+        isHit = false;
         //enemy_Audio = GetComponentInChildren<EnemyAudio>();
 
     }
@@ -66,7 +67,12 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if(isHit == true)
+        {
+            enemy_State = EnemyState.CHASE;            
+        }
+
         if(enemy_State == EnemyState.PATROL) {
             Patrol();
         }
@@ -82,7 +88,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     void Patrol() {
-
+        
         // tell nav agent that he can move
         navAgent.isStopped = false;
         navAgent.speed = walk_Speed;
