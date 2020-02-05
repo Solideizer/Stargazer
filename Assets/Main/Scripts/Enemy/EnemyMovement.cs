@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    [SerializeField] float rotationalDamp = 1.25f;
-    [SerializeField] float movementSpeed = 25f;
+    [SerializeField] private Transform target;
+    [SerializeField] private float rotationalDamp = 1.25f;
+    [SerializeField] private float movementSpeed = 25f;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Turn();
         Move();
@@ -18,13 +16,12 @@ public class EnemyMovement : MonoBehaviour
     private void Turn()
     {
         //if not destroyed
-        if(target != null)
+        if (target != null)
         {
             Vector3 pos = target.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(pos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationalDamp);
         }
-       
     }
 
     private void Move()

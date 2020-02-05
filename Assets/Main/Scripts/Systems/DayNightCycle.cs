@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
@@ -38,7 +37,7 @@ public class DayNightCycle : MonoBehaviour
     public float _nightSkyboxBlendFactor = 0f;
 
     public float _skyboxBlendFactor;
-    public float _skyboxBlendSpeed = 0.01f;    
+    public float _skyboxBlendSpeed = 0.01f;
 
     public int _guiWidth = 100;
     public int _guiHeight = 20;
@@ -62,21 +61,21 @@ public class DayNightCycle : MonoBehaviour
         RenderSettings.ambientIntensity = _nightAmbientIntensity;
         GetComponent<Light>().intensity = _nightSunIntensity;
 
-        transform.position = new Vector3((_centreOfGameWorld * 2),0,_centreOfGameWorld);
+        transform.position = new Vector3((_centreOfGameWorld * 2), 0, _centreOfGameWorld);
 
         transform.localEulerAngles = new Vector3(0, -90, 0);
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         StartCoroutine("TimeOfDayFiniteStateMachine");
-        
+
         _hours = 5;
         _minutes = 59;
         _counter = 59;
 
-        _days = 1;        
+        _days = 1;
 
         GameObject _sunPivotGO = GameObject.FindGameObjectWithTag("SunPivot");
 
@@ -86,14 +85,14 @@ public class DayNightCycle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         SecondsCounter();
         UpdateSkybox();
         SunRotationManager();
     }
 
-    IEnumerator TimeOfDayFiniteStateMachine()
+    private IEnumerator TimeOfDayFiniteStateMachine()
     {
         while (true)
         {
@@ -102,23 +101,26 @@ public class DayNightCycle : MonoBehaviour
                 case DayPhases.Dawn:
                     Dawn();
                     break;
+
                 case DayPhases.Day:
                     Day();
                     break;
+
                 case DayPhases.Dusk:
                     Dusk();
                     break;
+
                 case DayPhases.Night:
                     Night();
-                    break;              
+                    break;
             }
             yield return null;
         }
     }
 
-    void SecondsCounter()
+    private void SecondsCounter()
     {
-        if(_counter == 60)
+        if (_counter == 60)
         {
             _counter = 0;
         }
@@ -126,27 +128,27 @@ public class DayNightCycle : MonoBehaviour
 
         _seconds = (int)_counter;
 
-        if(_counter < 60){return;}
-        if (_counter > 60) { _counter = 60;}    //fail safe stuff
+        if (_counter < 60) { return; }
+        if (_counter > 60) { _counter = 60; }    //fail safe stuff
 
-        if(_counter == 60)
+        if (_counter == 60)
         {
             MinutesCounter();
         }
     }
 
-    void MinutesCounter()
+    private void MinutesCounter()
     {
-        _minutes ++;
+        _minutes++;
 
-        if(_minutes == 60)
+        if (_minutes == 60)
         {
             HoursCounter();
             _minutes = 0;
         }
     }
 
-    void HoursCounter()
+    private void HoursCounter()
     {
         _hours++;
 
@@ -157,17 +159,17 @@ public class DayNightCycle : MonoBehaviour
         }
     }
 
-    void DayCounter()
+    private void DayCounter()
     {
         _days++;
     }
 
-    void Dawn()
+    private void Dawn()
     {
         //directional light intensity adjustments
         if (GetComponent<Light>().intensity < _dawnSunIntensity)
         {
-            GetComponent<Light>().intensity += _sunDimTime * Time.deltaTime ;
+            GetComponent<Light>().intensity += _sunDimTime * Time.deltaTime;
         }
         if (GetComponent<Light>().intensity > _dawnSunIntensity)
         {
@@ -184,14 +186,13 @@ public class DayNightCycle : MonoBehaviour
             RenderSettings.ambientIntensity = _dawnAmbientIntensity;
         }
 
-
         if (_hours == _dayStartTime && _hours < _duskStartTime)      //if hours equals start time AND hours is still less than dusk start time
         {
             _dayPhases = DayPhases.Day;
         }
     }
 
-    void Day()
+    private void Day()
     {
         //directional light intensity adjustments
         if (GetComponent<Light>().intensity < _daySunIntensity)
@@ -213,13 +214,13 @@ public class DayNightCycle : MonoBehaviour
             RenderSettings.ambientIntensity = _dayAmbientIntensity;
         }
 
-        if (_hours == _duskStartTime && _hours < _nightStartTime)      
+        if (_hours == _duskStartTime && _hours < _nightStartTime)
         {
             _dayPhases = DayPhases.Dusk;
         }
     }
 
-    void Dusk()
+    private void Dusk()
     {
         //directional light intensity adjustments
         if (GetComponent<Light>().intensity > _duskSunIntensity)
@@ -241,13 +242,13 @@ public class DayNightCycle : MonoBehaviour
             RenderSettings.ambientIntensity = _dawnAmbientIntensity;
         }
 
-        if (_hours == _nightStartTime)      
+        if (_hours == _nightStartTime)
         {
             _dayPhases = DayPhases.Night;
         }
     }
 
-    void Night()
+    private void Night()
     {
         //directional light intensity adjustments
         if (GetComponent<Light>().intensity > _nightSunIntensity)
@@ -269,7 +270,7 @@ public class DayNightCycle : MonoBehaviour
             RenderSettings.ambientIntensity = _nightAmbientIntensity;
         }
 
-        if (_hours == _dawnStartTime && _hours < _dayStartTime)     
+        if (_hours == _dawnStartTime && _hours < _dayStartTime)
         {
             _dayPhases = DayPhases.Dawn;
         }
@@ -278,19 +279,19 @@ public class DayNightCycle : MonoBehaviour
     private void OnGUI()
     {
         GUI.Label(new Rect(Screen.width - 50, 5, _guiWidth, _guiHeight), "Day " + _days);
-        if(_minutes < 10)
+        if (_minutes < 10)
         {
-            GUI.Label(new Rect(Screen.width - 50, 25, _guiWidth, _guiHeight), _hours + " : " + 0 +_minutes + " : " + _seconds);
-        }else
-        GUI.Label(new Rect(Screen.width - 50, 25, _guiWidth, _guiHeight),_hours + " : " + _minutes + " : " +_seconds );
-
+            GUI.Label(new Rect(Screen.width - 50, 25, _guiWidth, _guiHeight), _hours + " : " + 0 + _minutes + " : " + _seconds);
+        }
+        else
+            GUI.Label(new Rect(Screen.width - 50, 25, _guiWidth, _guiHeight), _hours + " : " + _minutes + " : " + _seconds);
     }
 
     private void UpdateSkybox()
     {
-        if(_dayPhases == DayPhases.Dawn)
+        if (_dayPhases == DayPhases.Dawn)
         {
-            if(_skyboxBlendFactor == _dawnSkyboxBlendFactor){return;}
+            if (_skyboxBlendFactor == _dawnSkyboxBlendFactor) { return; }
             _skyboxBlendFactor += _skyboxBlendSpeed * Time.deltaTime;
 
             if (_skyboxBlendFactor > _dawnSkyboxBlendFactor)
@@ -327,20 +328,15 @@ public class DayNightCycle : MonoBehaviour
             {
                 _skyboxBlendFactor = _nightSkyboxBlendFactor;
             }
-
         }
 
-        RenderSettings.skybox.SetFloat("_Blend",_skyboxBlendFactor);
-
+        RenderSettings.skybox.SetFloat("_Blend", _skyboxBlendFactor);
     }
 
-
-    void SunRotationManager()
+    private void SunRotationManager()
     {
-        _RotationValue = _degreesSun / _secondsInaDay * TimeScale;      
+        _RotationValue = _degreesSun / _secondsInaDay * TimeScale;
 
         transform.RotateAround(_sunPivotPoint.position, Vector3.forward, _RotationValue * Time.deltaTime);
-        
     }
-
 }

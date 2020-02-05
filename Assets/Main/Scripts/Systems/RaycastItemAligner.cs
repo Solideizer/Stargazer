@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class RaycastItemAligner : MonoBehaviour{
-
+public class RaycastItemAligner : MonoBehaviour
+{
     [SerializeField] public float raycastDistance = 100f;
     public GameObject objectToSpawn;
 
@@ -14,15 +12,15 @@ public class RaycastItemAligner : MonoBehaviour{
 
     private void Awake()
     {
-        _pi = GameObject.Find("ItemSpawner").GetComponent<PickItem>();        
+        _pi = GameObject.Find("ItemSpawner").GetComponent<PickItem>();
     }
 
-    void Start()
+    private void Start()
     {
         PositionRaycast();
     }
 
-    void PositionRaycast()
+    private void PositionRaycast()
     {
         RaycastHit hitInfo;
         if (Physics.Raycast(transform.position, Vector3.down, out hitInfo, raycastDistance))
@@ -34,14 +32,11 @@ public class RaycastItemAligner : MonoBehaviour{
             Collider[] collidersInsideOverlapBox = new Collider[1];
             int numberOfCollidersFound = Physics.OverlapBoxNonAlloc(hitInfo.point, overlapTestBoxScale, collidersInsideOverlapBox,
                                          spawnRot, spawnedObjectLayer);
-                      
 
             if (numberOfCollidersFound == 0)
-            {                
+            {
                 _pi.Pick(hitInfo.point, spawnRot);
-            }           
-
+            }
         }
-    }   
-
+    }
 }

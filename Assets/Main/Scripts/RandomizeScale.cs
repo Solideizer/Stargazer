@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RandomizeScale : MonoBehaviour
 {
@@ -18,12 +16,12 @@ public class RandomizeScale : MonoBehaviour
     public float zScaleMax = 3f;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         RandomizeObjectScale();
     }
 
-    void RandomizeObjectScale()
+    private void RandomizeObjectScale()
     {
         Vector3 randomizedScale = Vector3.one;
         if (scaleUniformly)

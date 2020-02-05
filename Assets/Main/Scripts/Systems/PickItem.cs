@@ -1,17 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PickItem : MonoBehaviour
 {
-    Quaternion rotationToSpawn;
-    Vector3 positionToSpawn = new Vector3(0,0,0);
+    private Quaternion rotationToSpawn = Quaternion.identity;
+    private Vector3 positionToSpawn = new Vector3(0, 0, 0);
     public GameObject[] itemsToPickFrom;
+
     [Tooltip("Random min/max scale to apply.")]
     public Vector2 scaleRange = new Vector2(1.0f, 5.0f);
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Pick(positionToSpawn, rotationToSpawn);
     }
@@ -25,7 +24,4 @@ public class PickItem : MonoBehaviour
         float scale = Random.Range(scaleRange.x, scaleRange.y);
         clone.transform.localScale = Vector3.one * scale;
     }
-
-
 }
-

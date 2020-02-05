@@ -6,7 +6,7 @@ public class RabbitAi : MonoBehaviour
 {
     [SerializeField] private Animator anim;    
     [SerializeField] private float wanderTime;
-    [SerializeField] private float movementSpeed;
+    [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private bool isDead = false;
     
     void Start()

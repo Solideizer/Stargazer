@@ -12,7 +12,7 @@ public class PlayerFootsteps : MonoBehaviour
 
     private CharacterController character_Controller;
 
-    [HideInInspector]
+    
     public float volume_Min, volume_Max;
 
     private float accumulated_Distance;

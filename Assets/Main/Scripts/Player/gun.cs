@@ -1,10 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class gun : MonoBehaviour
 {
-
     [SerializeField] private float damage = 100f;
     [SerializeField] private float range = 50f;
     [SerializeField] private int maxAmmo = 12;
@@ -18,6 +16,7 @@ public class gun : MonoBehaviour
 
     private Animator anim;
     public Camera fpsCam;
+
     //public ParticleSystem mf;
     public GameObject hitEffect;
 
@@ -25,10 +24,9 @@ public class gun : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         currentAmmo = maxAmmo;
-        
     }
-  
-    void Update()
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo)
         {
@@ -38,17 +36,16 @@ public class gun : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && currentAmmo > 0)
         {
             anim.SetBool("shoot", true);
-            Shoot();            
-            nextTimeToFire = Time.time + 1f / fireRate;            
+            Shoot();
+            nextTimeToFire = Time.time + 1f / fireRate;
         }
         else
         {
             anim.SetBool("shoot", false);
         }
-
     }
 
-    void Shoot()
+    private void Shoot()
     {
         AudioManager.PlaySound("gunshoot");
         currentAmmo--;
@@ -59,10 +56,10 @@ public class gun : MonoBehaviour
 
         if (isHit)
         {
-            EnemyController.isHit = true;
             EnemyHumanoid target = hit.transform.GetComponent<EnemyHumanoid>();
             if (target != null)
             {
+                EnemyController.isHit = true;
                 target.takeDamage(damage);
             }
             if (hit.rigidbody != null)
@@ -71,20 +68,14 @@ public class gun : MonoBehaviour
             }
             GameObject impactGo = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGo, 2f);
-
         }
-
     }//void shoot
 
-    IEnumerator Reload()
+    private IEnumerator Reload()
     {
         AudioManager.PlaySound("reload");
         anim.SetTrigger("reload");
-        yield return new WaitForSeconds(reloadTime);        
-        currentAmmo = maxAmmo;        
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = maxAmmo;
     }
-
 }
-
-
-
