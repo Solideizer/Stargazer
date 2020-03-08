@@ -1196,7 +1196,7 @@ MonoBehaviour:
   chase_After_Attack_Distance: 10
   patrol_Radius_Min: 20
   patrol_Radius_Max: 100
-  patrol_For_This_Time: 15
+  patrol_For_This_Time: 5
   wait_Before_Attack: 1
   attack_Point: {fileID: 1434636662804543856}
 --- !u!114 &1434636664453402878

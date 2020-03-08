@@ -3,14 +3,16 @@ using UnityEngine.AI;
 
 public enum EnemyState
 {
-    PATROL,
-    CHASE,
-    ATTACK
+    PATROL = 0,
+    CHASE = 2,
+    ATTACK = 1,
+    DIE = 3,
 }
 
 public class EnemyController : MonoBehaviour
 {
     private EnemyAnimator enemy_Anim;
+    private Animator anim;
     private NavMeshAgent navAgent;
 
     private EnemyState enemy_State;
@@ -21,8 +23,7 @@ public class EnemyController : MonoBehaviour
 
     public float chase_Distance = 7f;
     private float current_Chase_Distance;
-    public float attack_Distance = 1.8f;
-    public float chase_After_Attack_Distance = 2f;
+    public float attack_Distance = 1.8f;    
 
     public float patrol_Radius_Min = 20f, patrol_Radius_Max = 60f;
     public float patrol_For_This_Time = 15f;
@@ -30,9 +31,7 @@ public class EnemyController : MonoBehaviour
 
     public float wait_Before_Attack = 2f;
     private float attack_Timer;
-
     private Transform target;
-
     public GameObject attack_Point;
 
     //private EnemyAudio enemy_Audio;
@@ -40,6 +39,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         enemy_Anim = GetComponent<EnemyAnimator>();
+        anim = GetComponent<Animator>();
         navAgent = GetComponent<NavMeshAgent>();
 
         target = GameObject.FindWithTag("FPPlayer").transform;
@@ -68,7 +68,15 @@ public class EnemyController : MonoBehaviour
     {
         if (isHit == true)
         {
-            enemy_State = EnemyState.CHASE;
+            if(enemy_State == EnemyState.PATROL)
+            {
+                Chase();
+
+            }else if(enemy_State == EnemyState.CHASE)
+            {
+                Attack();
+            }
+            
         }
 
         if (enemy_State == EnemyState.PATROL)
@@ -93,7 +101,7 @@ public class EnemyController : MonoBehaviour
         navAgent.isStopped = false;
         navAgent.speed = walk_Speed;
 
-        // add to the patrol timer
+        // add to the patrol timer        
         patrol_Timer += Time.deltaTime;
 
         if (patrol_Timer > patrol_For_This_Time)
@@ -105,17 +113,18 @@ public class EnemyController : MonoBehaviour
 
         if (navAgent.velocity.sqrMagnitude > 0)
         {
-            enemy_Anim.Walk(true);
+            //enemy_Anim.Walk(true);
+            anim.SetInteger("State",0);
         }
-        else
-        {
-            enemy_Anim.Walk(false);
-        }
+        //else
+        //{
+        //   enemy_Anim.Walk(false);
+        //}
 
         // test the distance between the player and the enemy
         if (Vector3.Distance(transform.position, target.position) <= chase_Distance)
         {
-            enemy_Anim.Walk(false);
+            //enemy_Anim.Walk(false);
 
             enemy_State = EnemyState.CHASE;
 
@@ -136,19 +145,20 @@ public class EnemyController : MonoBehaviour
 
         if (navAgent.velocity.sqrMagnitude > 0)
         {
-            enemy_Anim.Run(true);
+            //enemy_Anim.Run(true);
+            anim.SetInteger("State",2);
         }
-        else
-        {
-            enemy_Anim.Run(false);
-        }
+        //else
+        //{
+        //    enemy_Anim.Run(false);
+        //}
 
         // if the distance between enemy and player is less than attack distance
         if (Vector3.Distance(transform.position, target.position) <= attack_Distance)
         {
             // stop the animations
-            enemy_Anim.Run(false);
-            enemy_Anim.Walk(false);
+            //enemy_Anim.Run(false);
+            //enemy_Anim.Walk(false);
             enemy_State = EnemyState.ATTACK;
 
             // reset the chase distance to previous
@@ -162,7 +172,7 @@ public class EnemyController : MonoBehaviour
             // player run away from enemy
 
             // stop running
-            enemy_Anim.Run(false);
+            //enemy_Anim.Run(false);
 
             enemy_State = EnemyState.PATROL;
 
@@ -187,16 +197,15 @@ public class EnemyController : MonoBehaviour
 
         if (attack_Timer > wait_Before_Attack)
         {
-            enemy_Anim.Attack();
-
+            //enemy_Anim.Attack();
+            anim.SetInteger("State",1);
             attack_Timer = 0f;
 
             // play attack sound
             //enemy_Audio.Play_AttackSound();
         }
 
-        if (Vector3.Distance(transform.position, target.position) >
-           attack_Distance + chase_After_Attack_Distance)
+        if (Vector3.Distance(transform.position, target.position) > attack_Distance)
         {
             enemy_State = EnemyState.CHASE;
         }
@@ -227,6 +236,12 @@ public class EnemyController : MonoBehaviour
         {
             attack_Point.SetActive(false);
         }
+    }
+
+     void SetState(EnemyState state)
+    {
+        
+        anim.SetInteger("State",(int)state);
     }
 
     public EnemyState Enemy_State

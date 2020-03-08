@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RabbitAi : MonoBehaviour
 {
-    [SerializeField] private Animator anim;    
+    private Animator anim;    
     [SerializeField] private float wanderTime;
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private bool isDead = false;
@@ -20,6 +20,7 @@ public class RabbitAi : MonoBehaviour
         {
             if(wanderTime > 0)
             {
+
                 transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
                 anim.SetBool("isRunning", true);
                 anim.SetBool("isIdling", false);
@@ -31,6 +32,20 @@ public class RabbitAi : MonoBehaviour
                 wander();
             }
         }
+    }
+    void FixedUpdate()
+    {
+        RaycastHit hit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        
+        if (Physics.Raycast(transform.position, fwd ,out hit, 2))
+        {            
+            Debug.DrawRay(transform.position, fwd * hit.distance, Color.yellow);
+            wander();
+        }else{
+            Debug.DrawRay(transform.position, fwd * hit.distance, Color.green);
+        }
+            
     }
 
     void wander()

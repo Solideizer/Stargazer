@@ -25,8 +25,8 @@ public class EnemyHumanoid : MonoBehaviour
 
     private void Die()
     {
-        anim.SetTrigger("dead");
+        anim.SetInteger("State",3);
         isAlive = false;
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 10f);
     }
 }
