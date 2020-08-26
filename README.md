@@ -9,7 +9,7 @@ A passion project where I experiment with procedural generation and unique gamep
 
 - When I started to work on this project the concept of "Naming Conventions" was unfamiliar to me and I didn't think it was that important since I worked solo. Well, I was wrong. The naming of the variables/functions/classes on this project doesn't follow any set of rules so they are inconsistent in many places. Don't make the same mistakes I did and learn about naming conventions. Here is a good place to start : https://www.dofactory.com/reference/csharp-coding-standards
 
- - Many features in this project could have implemented in much better ways. For that I'm learning about Desing Patterns so I can use them when the need arises. In short, this project requires a lot of refactoring in order to be defined as a decent one. When it comes to choosing between refactoring my old code vs embarking on a new adventure I simply choose to set sail to new projects :D 
+ - Many features in this project could have implemented in much better ways. For that I'm learning about Design Patterns so I can use them when the need arises. In short, this project requires a lot of refactoring in order to be defined as a decent one. When it comes to choosing between refactoring my old code vs embarking on a new adventure I simply choose to set sail to new projects :D 
  
 ## **Implemented Features :** 
 - [x] 2 Playable planets with distinct habitats/flora/fauna 
