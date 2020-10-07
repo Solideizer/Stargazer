@@ -1,8 +1,6 @@
 # Stargazer
 A passion project where I experiment with procedural generation and unique gameplay ideas to create a first person adventure game where you can explore the outer space
 
-*Project is developed on Unity 2019.1.10f1* 
-
 **IMPORTANT NOTICE: This project was one of the first games that I tried to make in order to learn Unity and game development. It was also the first project that hooked me interested for more than a week. While working on it I learned lots of things so I call it a massive success BUT as I learned more and more about how to make a game, how to write clean code and how to structure a project, I have realized that this project fails in pretty much every category.** 
 
 - It has horrible folder structure because I never thought I would work on this project more than a few days. As the project started to grow folder structure started to crumble as expected.
