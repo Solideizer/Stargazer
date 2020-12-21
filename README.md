@@ -10,16 +10,16 @@ A passion project where I experiment with procedural generation and unique gamep
  - Many features in this project could have implemented in much better ways. For that I'm learning about Design Patterns so I can use them when the need arises. In short, this project requires a lot of refactoring in order to be defined as a decent one. When it comes to choosing between refactoring my old code vs embarking on a new adventure I simply choose to set sail to new projects :D 
  
 ## **Implemented Features :** 
-- [x] 2 Playable planets with distinct habitats/flora/fauna 
-- [x] Day/Night Cycle 
-- [x] Procedurally Placed Vegetation/Rocks etc 
-- [x] Non-Hostile Creatures
-- [x] Hostile Creatures 
-- [x] Procedurally Generated Asteroid Fields 
-- [x] Spaceship Flight
-- [x] Spaceship Combat v1
-- [x] FPS Combat
-- [x] An early implementetion of Asteroid Mining
+-  2 Playable planets with distinct habitats/flora/fauna 
+-  Day/Night Cycle 
+-  Procedurally Placed Vegetation/Rocks etc 
+-  Non-Hostile Creatures
+-  Hostile Creatures 
+-  Procedurally Generated Asteroid Fields 
+-  Spaceship Flight
+-  Spaceship Combat v1
+-  FPS Combat
+-  An early implementetion of Asteroid Mining
 
 ## **Planned Features :**
 - [ ] Dynamic Weather System
